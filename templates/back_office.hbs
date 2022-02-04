@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <title>Médecine predictive et préventive</title>
+
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="/static/css/back_office.css">
+    </head>
+    <body>
+        <main>
+            {{#each texts}}
+                <section>
+                    <label>{{ @key }}</label>
+                    <textarea>{{ this }}</textarea>
+                </section>
+            {{/each}}
+            <button>Confirmer</button>
+        </main>
+    </body>
+</html>

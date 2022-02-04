@@ -1,0 +1,33 @@
+:root {
+    font-family: 'Roboto', sans-serif;
+    --navbar-height: 60px;
+    --above-navbar-padding: calc(1.5 * var(--navbar-height));
+    --above-content-padding: calc(var(--navbar-height) + var(--above-navbar-padding));
+    --below-content-padding: calc(4 * var(--navbar-height));
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/images/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: left top;
+    position: absolute;
+}
+
+main {
+    margin-top: var(--above-content-padding);
+    margin-bottom: var(--below-content-padding);
+}
+
+#logo {
+    position: fixed;
+    z-index: -1;
+    /* filter: invert(); */
+    height: var(--navbar-height);
+    margin-inline: auto;
+    margin-block: calc((var(--above-navbar-padding) - var(--navbar-height)) / 2);
+    left: 0;
+    right: 0;
+}
