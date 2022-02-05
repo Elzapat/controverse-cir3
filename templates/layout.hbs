@@ -18,11 +18,16 @@
         <link rel="stylesheet" href="/static/css/style.css">
         <link rel="stylesheet" href="/static/css/navbar.css">
         {{~> stylesheets }}
+
+        <script src="/static/js/fixed_navbar.js"></script>
+        {{~> scripts }}
     </head>
     <body>
-        <img id="logo" src="/static/images/logo.png" />
+        <section id="banner">
+            <img id="logo" src="/static/images/logo.png" />
+        </section>
         <nav>
-            {{> nav}}
+            {{> navbar}}
         </nav>
         <main>
             {{~> main}}

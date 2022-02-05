@@ -1,33 +1,37 @@
 :root {
     font-family: 'Roboto', sans-serif;
     --navbar-height: 60px;
-    --above-navbar-padding: calc(1.5 * var(--navbar-height));
-    --above-content-padding: calc(var(--navbar-height) + var(--above-navbar-padding));
-    --below-content-padding: calc(4 * var(--navbar-height));
+    --banner-height: calc(1.5 * var(--navbar-height));
+    --above-content-padding: calc(var(--navbar-height) + var(--banner-height));
+    --below-content-padding: calc(2 * var(--navbar-height));
 }
 
 body {
     margin: 0;
     padding: 0;
+    width: 100vw;
     background-image: url("/static/images/background.png");
     background-size: cover;
     background-attachment: fixed;
     background-position: left top;
     position: absolute;
+    overflow-x: hidden;
 }
 
 main {
-    margin-top: var(--above-content-padding);
     margin-bottom: var(--below-content-padding);
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 #logo {
-    position: fixed;
-    z-index: -1;
     /* filter: invert(); */
-    height: var(--navbar-height);
-    margin-inline: auto;
-    margin-block: calc((var(--above-navbar-padding) - var(--navbar-height)) / 2);
-    left: 0;
-    right: 0;
+    height: calc(var(--banner-height) - 25%);
+}
+
+#banner {
+    height: var(--banner-height);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
