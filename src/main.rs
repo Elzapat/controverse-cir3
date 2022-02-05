@@ -33,6 +33,7 @@ fn about() -> Template {
 fn main() {
     rocket::ignite()
         .mount("/", routes![homepage, about])
+        .mount("/home", routes![homepage])
         .mount("/back-office", routes![back_office::back_office])
         .mount("/static", StaticFiles::from("static"))
         .attach(Template::fairing())
