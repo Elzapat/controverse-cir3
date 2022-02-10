@@ -18,13 +18,17 @@
     </head>
     <body>
         <main>
-            {{#each texts}}
-                <section>
-                    <label>{{ @key }}</label>
-                    <textarea>{{ this }}</textarea>
-                </section>
-            {{/each}}
-            <button>Confirmer</button>
+            <h1>Page acteurs</h1>
+            <hr>
+            <form>
+                {{#each actors}}
+                    <section>
+                        <label>{{ @key }}</label>
+                        <textarea>{{ this }}</textarea>
+                    </section>
+                {{/each}}
+                <input type="submit" value="Valider">
+            </form>
         </main>
     </body>
 </html>
