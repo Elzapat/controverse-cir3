@@ -21,6 +21,12 @@ body {
 main {
     margin-bottom: var(--below-content-padding);
     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
 }
 
 #logo {
@@ -34,4 +40,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+hr {
+    margin-top: -15px;
+    margin-inline: 20%;
+    min-width: 50%;
+    height: 1px;
+    background-color: black;
+    border: 0;
 }

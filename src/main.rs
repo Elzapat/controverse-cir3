@@ -30,9 +30,14 @@ fn about() -> Template {
     Template::render("about", "")
 }
 
+#[get("/actors")]
+fn actors() -> Template {
+    Template::render("actors", "")
+}
+
 fn main() {
     rocket::ignite()
-        .mount("/", routes![homepage, about])
+        .mount("/", routes![homepage, about, actors])
         .mount("/home", routes![homepage])
         .mount("/back-office", routes![back_office::back_office])
         .mount("/static", StaticFiles::from("static"))
