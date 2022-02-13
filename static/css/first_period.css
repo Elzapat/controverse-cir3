@@ -61,7 +61,6 @@ article {
     content: "";
     position: absolute;
     background-image: url("../images/dna_tube.jpg");
-    background-color: rgba(0, 0, 0, 0.2);
     background-size: contain;
     background-repeat: no-repeat;
     inset: 0;

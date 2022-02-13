@@ -30,7 +30,6 @@ main {
 }
 
 #logo {
-    /* filter: invert(); */
     height: calc(var(--banner-height) - 25%);
 }
 
@@ -49,4 +48,10 @@ hr {
     height: 1px;
     background-color: black;
     border: 0;
+}
+
+.sup {
+    font-size: 70%;
+    position: relative;
+    bottom: 0.5em;
 }
