@@ -1,4 +1,4 @@
-use crate::load_texts;
+use crate::texts::load_texts;
 use rocket_contrib::templates::Template;
 
 #[get("/")]
