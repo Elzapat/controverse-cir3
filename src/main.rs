@@ -3,39 +3,81 @@
 #[macro_use]
 extern crate rocket;
 
-mod back_office;
 pub mod texts;
 
 use rocket_contrib::{serve::StaticFiles, templates::Template};
-use texts::load_texts;
+use texts::*;
 
 #[get("/")]
-fn homepage() -> Template {
-    Template::render("homepage", "")
+fn accueil() -> Template {
+    let texts = load_texts().unwrap();
+    Template::render("accueil", texts.accueil)
 }
 
-#[get("/about")]
-fn about() -> Template {
-    Template::render("about", "")
+#[get("/a_propos")]
+fn a_propos() -> Template {
+    Template::render("a_propos", "")
 }
 
-#[get("/actors")]
-fn actors() -> Template {
-    let texts = load_texts();
-    Template::render("actors", texts.actors)
+#[get("/acteurs")]
+fn acteurs() -> Template {
+    let texts = load_texts().unwrap();
+    Template::render("acteurs", texts.acteurs)
 }
 
-#[get("/first_period")]
-fn first_period() -> Template {
-    let texts = load_texts();
-    Template::render("first_period", texts.first_period)
+#[get("/premiere_periode")]
+fn premiere_periode() -> Template {
+    let texts = load_texts().unwrap();
+    Template::render("premiere_periode", texts.premiere_periode)
+}
+
+#[get("/vue_ensemble")]
+fn vue_ensemble() -> Template {
+    Template::render("vue_ensemble", "")
+}
+
+#[get("/deuxieme_periode")]
+fn deuxieme_periode() -> Template {
+    Template::render("deuxieme_periode", "")
+}
+
+#[get("/interview")]
+fn interview() -> Template {
+    Template::render("interview", "")
+}
+
+#[get("/conclusion")]
+fn conclusion() -> Template {
+    Template::render("conclusion", "")
+}
+
+#[get("/bibliography")]
+fn bibliography() -> Template {
+    Template::render("bibliography", "")
 }
 
 fn main() {
     rocket::ignite()
-        .mount("/", routes![homepage, actors, first_period, about])
-        .mount("/home", routes![homepage])
-        .mount("/back-office", routes![back_office::back_office])
+        .mount(
+            "/",
+            routes![
+                textes,
+                accueil,
+                acteurs,
+                vue_ensemble,
+                premiere_periode,
+                deuxieme_periode,
+                interview,
+                conclusion,
+                bibliography,
+                a_propos
+            ],
+        )
+        .mount("/accueil", routes![accueil])
+        .mount(
+            "/textes",
+            routes![accueil_textes, premiere_periode_textes, acteurs_textes],
+        )
         .mount("/static", StaticFiles::from("static"))
         .attach(Template::fairing())
         .launch();

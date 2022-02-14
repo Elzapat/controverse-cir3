@@ -29,6 +29,11 @@ main {
     background-color: white;
 }
 
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 #logo {
     height: calc(var(--banner-height) - 25%);
 }

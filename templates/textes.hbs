@@ -15,20 +15,30 @@
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="static/css/back_office.css">
+
+        <script defer>
+            {{ #if message }}
+                alert("{{ message }}");
+            {{ /if }}
+        </script>
     </head>
     <body>
         <main>
-            <h1>Page acteurs</h1>
-            <hr>
-            <form>
-                {{#each actors}}
-                    <section>
-                        <label>{{ @key }}</label>
-                        <textarea>{{ this }}</textarea>
-                    </section>
-                {{/each}}
-                <input type="submit" value="Valider">
-            </form>
+            {{ #each textes }}
+                <section>
+                    <h1>{{ @key }}</h1>
+                    <hr>
+                    <form action="/textes/{{ @key }}">
+                        {{ #each this }}
+                            <section>
+                                <label>{{ @key }}</label>
+                                <textarea name="{{ @key }}">{{ this }}</textarea>
+                            </section>
+                        {{ /each }}
+                        <input type="submit" value="Valider">
+                    </form>
+                </section>
+            {{ /each }}
         </main>
     </body>
 </html>
