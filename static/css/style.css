@@ -35,7 +35,16 @@ p {
 }
 
 #logo {
-    height: calc(var(--banner-height) - 25%);
+    margin-top: 10px;
+    aspect-ratio: 1 / 1;
+    height: calc(var(--banner-height) - 10%);
+    width: auto;
+}
+
+#logo img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0px 0px 10px black);
 }
 
 #banner {

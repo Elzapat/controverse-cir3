@@ -1,5 +1,6 @@
 main {
-    padding-block: 100px;
+    /* padding-block: 50px; */
+    margin-bottom: 0;
 }
 
 .image-text {
@@ -11,7 +12,7 @@ main {
     font-size: 1.3rem;
 }
 
-.image-text::after {
+.image-text::before {
     z-index: 1;
     content: "";
     position: absolute;
@@ -30,7 +31,7 @@ main > section * {
     width: 80%;
 }
 
-#introduction::after {
+#introduction::before {
     background-image: url("../images/introduction.png");
 }
 
@@ -46,8 +47,8 @@ main > section * {
     padding-bottom: 35%;
 }
 
-#second-row {
-    width: 80%;
+.row {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -57,66 +58,143 @@ main > section * {
                  0px 18px 23px rgba(0,0,0,0.1);
 }
 
-#second-row h2 {
+/* .row:nth-of-type(2), */
+/* .row:nth-of-type(3) { */
+/*     height: 300px; */
+/* } */
+
+.row:nth-of-type(2),
+.row:nth-of-type(3),
+.row:nth-of-type(4),
+.row:nth-of-type(5){
+    height: 425px;
+}
+
+.image-text h2 {
     margin-inline: auto;
-    margin-top: 10%;
+    margin-top: 75px;
     font-size: 2.5rem;
     text-align: center;
 }
 
-#second-row a {
+.image-text a {
     text-shadow: none;
     text-decoration: none;
     text-align: center;
     width: 40%;
-    margin-bottom: 10%;
+    margin-bottom: 75px;
     border-radius: none;
     border: none;
     color: whitesmoke;
-    background-color: mediumslateblue;
+    background-color: #7B68EEDD;
     padding-block: 15px;
     font-size: 1.5rem;
     transition: background-color 300ms ease;
+    border-radius: 5px;
 }
 
-#second-row a:hover {
-    background-color: slateblue;
+.image-text a:hover {
+    background-color: #6A5ACDFF;
 }
 
-#first-period,
-#overview {
+.image-text {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-#first-period {
-    width: 48%;
-    aspect-ratio: 2048 / 1153;
+#overview::before,
+#conclusion::before {
+    background-attachment: fixed;
 }
 
-#first-period::after {
-    background-image: url("../images/premiere_periode.png");
+#conclusion::before {
+    background-size: 80%;
+    background-position: right;
+}
+
+/* #second-period::before { */
+/*     background-size: 50%; */
+/*     background-position: right; */
+/* } */
+
+.row section::before {
+    background-size: cover;
     filter: brightness(0.7);
     transition: filter 400ms ease;
 }
 
-#first-period:hover::after {
+.row section:hover::before {
     filter: brightness(0.5);
 }
 
+#first-period {
+    width: 50%;
+    aspect-ratio: 2048 / 1153;
+}
+
+#first-period::before {
+    background-image: url("../images/premiere_periode.png");
+}
+
 #overview {
-    width: 48%;
-    aspect-ratio: 474 / 266;
+    width: 100%;
 }
 
-#overview::after {
+#overview::before {
     background-image: url("../images/vue_ensemble.png");
-    filter: brightness(0.7);
-    transition: filter 400ms ease;
 }
 
-#overview:hover::after {
-    filter: brightness(0.5)
+#acteurs {
+    width: 100%;
+}
+
+#acteurs::before {
+    background-image: url("../images/acteurs.png");
+}
+
+#second-period {
+    width: 50%;
+    aspect-ratio: 2048 / 1114;
+}
+
+#second-period::before {
+    background-image: url("../images/deuxieme_periode.png");
+}
+
+#interview {
+    width: 50%;
+    aspect-ratio: 2048 / 1366;
+}
+
+#interview::before {
+    background-image: url("../images/interview.png");
+}
+
+#conclusion {
+    width: 50%;
+    aspect-ratio: 2048 / 1366;
+}
+
+#conclusion::before {
+    background-image: url("../images/conclusion.jpg");
+}
+
+#bibliographie {
+    width: 50%;
+    aspect-ratio: 1900 / 1080;
+}
+
+#bibliographie::before {
+    background-image: url("../images/bibliographie.png");
+}
+
+#a_propos {
+    width: 50%;
+    aspect-ratio: 2048 / 1366;
+}
+
+#a_propos::before {
+    background-image: url("../images/a_propos.png");
 }
