@@ -43,10 +43,9 @@ main > section * {
 }
 
 #introduction p {
-    width: 66%;
+    width: 60%;
     margin-inline: auto;
     padding-bottom: 45%;
-    padding-inline: 20%;
 }
 
 .row {

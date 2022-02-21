@@ -1,0 +1,9 @@
+#introduction {
+
+}
+
+.introduction::before {
+    background-image: url("../images/deuxieme_periode.jpg");
+    background-size: cover;
+    filter: brightness(0.7);
+}

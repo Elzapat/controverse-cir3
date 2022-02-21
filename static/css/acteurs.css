@@ -4,6 +4,11 @@
     width: 100%;
 }
 
+main {
+    background-color: #FFFFFFBB;
+    margin-bottom: 0;
+}
+
 .sub-article {
     display: flex;
     flex-direction: row;
@@ -28,6 +33,7 @@
 
 .article-image {
     object-fit: cover;
+    border: 2px solid black;
     /* aspect-ratio: 315 / 187; */
     /* max-height: 187px; */
     /* max-width: 33%; */
@@ -49,12 +55,9 @@
     font-size: 1.1rem;
 }
 
-img {
-    border: 2px solid black;
-}
-
 #ttandme-img {
     padding-bottom: 5px;
+    background-color: white;
 }
 
 .article-sep {

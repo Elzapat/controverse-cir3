@@ -12,6 +12,8 @@ pub struct Textes {
     pub premiere_periode: PremierePeriodeTextes,
     #[serde(default)]
     pub acteurs: ActeursTextes,
+    #[serde(default)]
+    pub deuxieme_periode: DeuxiemePeriodeTextes,
 }
 
 macro_rules! textes_struct {
@@ -43,8 +45,9 @@ macro_rules! textes_function {
 }
 
 textes_struct!(AccueilTextes, introduction);
-textes_struct!(PremierePeriodeTextes, introduction, commercialisation);
 textes_struct!(ActeursTextes, fda, ttandme, google, chercheurs);
+textes_struct!(PremierePeriodeTextes, introduction, commercialisation);
+textes_struct!(DeuxiemePeriodeTextes, introduction);
 
 #[derive(Debug, Clone, Serialize, Default)]
 struct TextesPage {
@@ -58,8 +61,9 @@ pub fn load_texts() -> Result<Textes, Box<dyn Error>> {
     Ok(ron::from_str(&file)?)
 }
 
-#[get("/textes?<message>")]
+#[get("/textes?<message>", rank = 5)]
 pub fn textes(message: Option<String>) -> Template {
+    println!("HERE");
     Template::render(
         "textes",
         TextesPage {
@@ -69,17 +73,22 @@ pub fn textes(message: Option<String>) -> Template {
     )
 }
 
-#[get("/accueil?<accueil..>")]
+#[get("/?page=accueil&<accueil..>", rank = 1)]
 pub fn accueil_textes(accueil: Form<AccueilTextes>) -> Redirect {
     textes_function!(accueil)
 }
 
-#[get("/premiere_periode?<premiere_periode..>")]
+#[get("/?page=acteurs&<acteurs..>", rank = 2)]
+pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Redirect {
+    textes_function!(acteurs)
+}
+
+#[get("/?page=premiere_periode&<premiere_periode..>", rank = 3)]
 pub fn premiere_periode_textes(premiere_periode: Form<PremierePeriodeTextes>) -> Redirect {
     textes_function!(premiere_periode)
 }
 
-#[get("/acteurs?<acteurs..>")]
-pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Redirect {
-    textes_function!(acteurs)
+#[get("/?page=deuxieme_periode&<deuxieme_periode..>", rank = 4)]
+pub fn deuxieme_periode_textes(deuxieme_periode: Form<DeuxiemePeriodeTextes>) -> Redirect {
+    textes_function!(deuxieme_periode)
 }

@@ -16,11 +16,11 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="static/css/back_office.css">
 
-        <script defer>
-            {{ #if message }}
+        {{ #if message }}
+            <script defer>
                 alert("{{ message }}");
-            {{ /if }}
-        </script>
+            </script>
+        {{ /if }}
     </head>
     <body>
         <main>
@@ -28,7 +28,8 @@
                 <section>
                     <h1>{{ @key }}</h1>
                     <hr>
-                    <form action="textes/{{ @key }}">
+                    <form action="textes">
+                        <input value="{{ @key }}" name="page" hidden>
                         {{ #each this }}
                             <section>
                                 <label>{{ @key }}</label>

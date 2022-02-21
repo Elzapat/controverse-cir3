@@ -38,7 +38,8 @@ fn vue_ensemble() -> Template {
 
 #[get("/deuxieme_periode")]
 fn deuxieme_periode() -> Template {
-    Template::render("deuxieme_periode", "")
+    let texts = load_texts().unwrap();
+    Template::render("deuxieme_periode", texts.deuxieme_periode)
 }
 
 #[get("/interview")]
@@ -61,7 +62,6 @@ fn main() {
         .mount(
             "/",
             routes![
-                textes,
                 accueil,
                 acteurs,
                 vue_ensemble,
@@ -70,13 +70,19 @@ fn main() {
                 interview,
                 conclusion,
                 bibliography,
-                a_propos
+                a_propos,
+                textes,
             ],
         )
         .mount("/accueil", routes![accueil])
         .mount(
             "/textes",
-            routes![accueil_textes, premiere_periode_textes, acteurs_textes],
+            routes![
+                accueil_textes,
+                acteurs_textes,
+                premiere_periode_textes,
+                deuxieme_periode_textes
+            ],
         )
         .mount("/static", StaticFiles::from("static"))
         .attach(Template::fairing())
