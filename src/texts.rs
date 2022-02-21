@@ -73,22 +73,22 @@ pub fn textes(message: Option<String>) -> Template {
     )
 }
 
-#[get("/?page=accueil&<accueil..>", rank = 1)]
+#[get("/?textes=accueil&<accueil..>", rank = 1)]
 pub fn accueil_textes(accueil: Form<AccueilTextes>) -> Redirect {
     textes_function!(accueil)
 }
 
-#[get("/?page=acteurs&<acteurs..>", rank = 2)]
+#[get("/?textes=acteurs&<acteurs..>", rank = 2)]
 pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Redirect {
     textes_function!(acteurs)
 }
 
-#[get("/?page=premiere_periode&<premiere_periode..>", rank = 3)]
+#[get("/?textes=premiere_periode&<premiere_periode..>", rank = 3)]
 pub fn premiere_periode_textes(premiere_periode: Form<PremierePeriodeTextes>) -> Redirect {
     textes_function!(premiere_periode)
 }
 
-#[get("/?page=deuxieme_periode&<deuxieme_periode..>", rank = 4)]
+#[get("/?textes=deuxieme_periode&<deuxieme_periode..>", rank = 4)]
 pub fn deuxieme_periode_textes(deuxieme_periode: Form<DeuxiemePeriodeTextes>) -> Redirect {
     textes_function!(deuxieme_periode)
 }
