@@ -30,17 +30,16 @@ macro_rules! textes_struct {
 
 macro_rules! textes_function {
     ($name:ident) => {{
-        let mut textes = match load_texts() {
-            Ok(t) => t,
-            Err(e) => return Redirect::to(uri!(textes: format!("Erreur : {e}"))),
-        };
+        let mut textes = load_texts().unwrap();
 
         textes.$name = $name.clone();
 
-        match fs::write("static/textes.ron", ron::to_string(&textes).unwrap()) {
-            Ok(_) => Redirect::to(uri!(textes: "Succès")),
-            Err(e) => Redirect::to(uri!(textes: format!("Erreur : {e}"))),
-        }
+        let message = match fs::write("static/textes.ron", ron::to_string(&textes).unwrap()) {
+            Ok(_) => Some("Succès".to_owned()),
+            Err(e) => Some(format!("Erreur : {e}")),
+        };
+
+        Template::render("textes", TextesPage { message, textes })
     }};
 }
 
@@ -74,21 +73,21 @@ pub fn textes(message: Option<String>) -> Template {
 }
 
 #[get("/?textes=accueil&<accueil..>", rank = 1)]
-pub fn accueil_textes(accueil: Form<AccueilTextes>) -> Redirect {
+pub fn accueil_textes(accueil: Form<AccueilTextes>) -> Template {
     textes_function!(accueil)
 }
 
 #[get("/?textes=acteurs&<acteurs..>", rank = 2)]
-pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Redirect {
+pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Template {
     textes_function!(acteurs)
 }
 
 #[get("/?textes=premiere_periode&<premiere_periode..>", rank = 3)]
-pub fn premiere_periode_textes(premiere_periode: Form<PremierePeriodeTextes>) -> Redirect {
+pub fn premiere_periode_textes(premiere_periode: Form<PremierePeriodeTextes>) -> Template {
     textes_function!(premiere_periode)
 }
 
 #[get("/?textes=deuxieme_periode&<deuxieme_periode..>", rank = 4)]
-pub fn deuxieme_periode_textes(deuxieme_periode: Form<DeuxiemePeriodeTextes>) -> Redirect {
+pub fn deuxieme_periode_textes(deuxieme_periode: Form<DeuxiemePeriodeTextes>) -> Template {
     textes_function!(deuxieme_periode)
 }
