@@ -48,3 +48,18 @@
     padding-right: 50px;
     font-size: 1.1rem;
 }
+
+img {
+    border: 2px solid black;
+}
+
+#ttandme-img {
+    padding-bottom: 5px;
+}
+
+.article-sep {
+    min-width: 25%;
+    margin-block: 20px;
+    margin-inline: auto;
+    background-image: linear-gradient(to right, white, #bbb, #bbb, #bbb, white);
+}

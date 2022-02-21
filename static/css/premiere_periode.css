@@ -87,3 +87,25 @@ article {
     padding-inline: 0.5ch;
     width: 66%;
 }
+
+#refus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+#refus h3 {
+    margin-top: -25px;
+}
+
+#refus h2,
+#refus h3 {
+    color: #0E52AD;
+}
+
+#refus img {
+    width: 80%;
+    aspect-ratio: 794/ 774;
+}

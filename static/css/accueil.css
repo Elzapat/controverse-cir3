@@ -39,12 +39,14 @@ main > section * {
     color: black;
     font-size: 2.0rem;
     margin-inline: auto;
+    margin-top: 20px;
 }
 
 #introduction p {
     width: 66%;
     margin-inline: auto;
-    padding-bottom: 35%;
+    padding-bottom: 45%;
+    padding-inline: 20%;
 }
 
 .row {
