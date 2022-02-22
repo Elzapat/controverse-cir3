@@ -1,9 +1,138 @@
-#introduction {
-
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.introduction::before {
+main {
+    margin-bottom: 0;
+    flex: 1;
+}
+
+section * {
+    z-index: 2;
+}
+
+#first-row,
+#second-row {
+    height: 50%;
+}
+
+#first-row {
+    position: relative;
+}
+
+#first-row .image-text:nth-of-type(1)::before {
     background-image: url("../images/deuxieme_periode.jpg");
+}
+
+#first-row .image-text:nth-of-type(2)::before {
+    background-image: url("../images/conditions.jpg");
+}
+
+#second-row .image-text:nth-of-type(1)::before {
+    background-image: url("../images/enjeux.jpeg");
+}
+
+#second-row .image-text:nth-of-type(2)::before {
+    background-image: url("../images/inquietudes.jpg");
+}
+
+.image-text {
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    color: white;
+    cursor: pointer;
+    transition: transform 400ms ease;
+}
+
+.image-text::before {
+    content: "";
+    z-index: 1;
     background-size: cover;
+    background-repeat: no-repeat;
     filter: brightness(0.7);
+    position: absolute;
+    inset: 0;
+    transition: filter 400ms ease;
+}
+
+.image-text:hover:not(.shown)::before {
+    filter: brightness(0.5);
+}
+
+.image-text h2 {
+    margin-top: 7%;
+    margin-inline: auto;
+    text-align: center;
+    font-size: 2.1rem;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+    transition: margin-top 300ms ease;
+}
+
+.shown h2 {
+    margin-top: 50px;
+    /* margin: 25px 0 0 0; */
+}
+
+.shown::before {
+    filter: brightness(0.2);
+}
+
+.image-text p {
+    text-indent: 5%;
+    font-size: 0.65rem;
+    transform: scale(0);
+    transition: transform 400ms ease;
+}
+
+
+#introduction p {
+    padding-inline: 150px;
+}
+
+#conditions p {
+    padding-inline: 200px;
+}
+
+#enjeux p {
+    padding-inline: 200px;
+}
+
+#inquietudes p {
+    padding-inline: 70px;
+}
+
+#inquietudes h2 {
+    margin-top: 25px !important;
+}
+
+#read-close {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 70px;
+    z-index: 13;
+    color: white;
+    cursor: pointer;
+    transform: scale(0);
+    transition: transform 400ms ease;
+    transition: color 300ms ease;
+}
+
+#read-close:hover {
+    color: #bbb;
+}
+
+#first-row,
+#second-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }

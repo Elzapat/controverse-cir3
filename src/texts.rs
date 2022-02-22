@@ -46,7 +46,20 @@ macro_rules! textes_function {
 textes_struct!(AccueilTextes, introduction);
 textes_struct!(ActeursTextes, fda, ttandme, google, chercheurs);
 textes_struct!(PremierePeriodeTextes, introduction, commercialisation);
-textes_struct!(DeuxiemePeriodeTextes, introduction);
+textes_struct!(
+    DeuxiemePeriodeTextes,
+    introduction_1,
+    introduction_2,
+    introduction_3,
+    conditions_1,
+    conditions_2,
+    enjeux_1,
+    enjeux_2,
+    enjeux_3,
+    inquietudes_1,
+    inquietudes_2,
+    inquietudes_3
+);
 
 #[derive(Debug, Clone, Serialize, Default)]
 struct TextesPage {

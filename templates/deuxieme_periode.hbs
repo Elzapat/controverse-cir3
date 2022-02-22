@@ -2,9 +2,38 @@
     <link rel="stylesheet" href="static/css/deuxieme_periode.css">
 {{/inline}}
 
+{{#*inline "scripts"}}
+    <script src="static/js/deuxieme_periode_textes.js" defer></script>
+{{/inline}}
+
 {{#*inline "main"}}
-    <section id="introduction">
-        <p>{{ introduction }}</p>
+    <section id="first-row">
+        <span id="read-close">←</span>
+        <article class="image-text" id="introduction">
+            <h2>Le changement de position de la FDA</h2>
+            <p>{{ introduction_1 }}</p>
+            <p>{{ introduction_2 }}</p>
+            <p>{{ introduction_3 }}</p>
+        </article>
+        <article class="image-text" id="conditions">
+            <h2>D'où vient ce revirement ?<br>Comment est-il implémenté ?</h2>
+            <p>{{ conditions_1 }}</p>
+            <p>{{ conditions_2 }}</p>
+        </article>
+    </section>
+    <section id="second-row">
+        <article class="image-text" id="enjeux">
+            <h2>Nouveaux enjeux économiques, sociaux, sanitaires</h2>
+            <p> {{ enjeux_1 }}</p>
+            <p> {{ enjeux_2 }}</p>
+            <p> {{ enjeux_3 }}</p>
+        </article>
+        <article class="image-text" id="inquietudes">
+            <h2>Inquiétudes vis-à-vis de ce home-test<br>Généralisation des home test</h2>
+            <p> {{ inquietudes_1 }}</p>
+            <p> {{ inquietudes_2 }}</p>
+            <p> {{ inquietudes_3 }}</p>
+        </article>
     </section>
 {{/inline}}
 

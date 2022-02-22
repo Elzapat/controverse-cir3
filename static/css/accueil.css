@@ -12,6 +12,10 @@ main {
     font-size: 1.3rem;
 }
 
+.image-text:not(#introduction) {
+    cursor: pointer;
+}
+
 .image-text::before {
     z-index: 1;
     content: "";
