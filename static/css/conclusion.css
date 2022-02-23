@@ -28,18 +28,53 @@ main {
     padding-block: 50px;
 }
 
-p {
-    margin-inline: auto;
+#first-part,
+#second-part {
+    display: flex;
+    flex-direction: row;
+}
+
+#first-part img {
+    width: auto;
+    height: auto;
+    aspect-ratio: 474 / 355;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#first-part .text {
+    /* width: 65%; */
+    margin-right: 50px;
+}
+
+#first-part p {
     font-weight: 500;
-    width: 60%;
     text-align: justify;
     font-size: 1.2rem;
+    color: black;
 }
 
 #second-part {
-    background-color: #030d19;
+    background-color: #011f39;
+    padding-inline: 50px;
 }
 
 #second-part p {
     color: white;
+    margin-inline: auto;
+    font-weight: 500;
+    text-align: justify;
+    font-size: 1.2rem;
+    padding-right: 25px;
+}
+
+#second-part img {
+    display: block;
+    margin: auto;
+    width: 500px;
 }
