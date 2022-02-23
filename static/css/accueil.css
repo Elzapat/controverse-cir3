@@ -43,7 +43,7 @@ main > section * {
     color: black;
     font-size: 2.0rem;
     margin-inline: auto;
-    margin-top: 20px;
+    margin-top: 100px;
 }
 
 #introduction p {
@@ -75,11 +75,17 @@ main > section * {
     height: 425px;
 }
 
+.row section {
+    flex: 1;
+}
+
 .image-text h2 {
     margin-inline: auto;
     margin-top: 75px;
     font-size: 2.5rem;
     text-align: center;
+    /* box-shadow: 0px 0px 25px 25px rgba(55,54,51, 0.9); */
+    /* background-color: rgba(55, 54, 51, 0.9); */
 }
 
 .image-text a {
@@ -109,15 +115,14 @@ main > section * {
     align-items: center;
 }
 
-#overview::before,
-#conclusion::before {
-    background-attachment: fixed;
-}
+/* #overview::before { */
+/*     background-attachment: fixed; */
+/* } */
 
-#conclusion::before {
-    background-size: 80%;
-    background-position: right;
-}
+/* #conclusion::before { */
+/*     background-size: 70%; */
+/*     background-position: bottom left; */
+/* } */
 
 /* #second-period::before { */
 /*     background-size: 50%; */

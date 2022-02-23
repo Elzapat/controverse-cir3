@@ -1,19 +1,23 @@
+use rocket::request::Form;
 use rocket::request::FromForm;
-use rocket::{request::Form, response::Redirect};
 use rocket_contrib::templates::Template;
 use serde::{Deserialize, Serialize};
 use std::{error::Error, fs};
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Textes {
-    #[serde(default)]
-    pub accueil: AccueilTextes,
+    // #[serde(default)]
+    // pub accueil: AccueilTextes,
     #[serde(default)]
     pub premiere_periode: PremierePeriodeTextes,
     #[serde(default)]
     pub acteurs: ActeursTextes,
     #[serde(default)]
     pub deuxieme_periode: DeuxiemePeriodeTextes,
+    #[serde(default)]
+    pub conclusion: ConclusionTextes,
+    #[serde(default)]
+    pub a_propos: AProposTextes,
 }
 
 macro_rules! textes_struct {
@@ -43,7 +47,6 @@ macro_rules! textes_function {
     }};
 }
 
-textes_struct!(AccueilTextes, introduction);
 textes_struct!(ActeursTextes, fda, ttandme, google, chercheurs);
 textes_struct!(PremierePeriodeTextes, introduction, commercialisation);
 textes_struct!(
@@ -60,6 +63,14 @@ textes_struct!(
     inquietudes_2,
     inquietudes_3
 );
+textes_struct!(
+    ConclusionTextes,
+    paragraph_1,
+    paragraph_2,
+    paragraph_3,
+    paragraph_4
+);
+textes_struct!(AProposTextes, contexte);
 
 #[derive(Debug, Clone, Serialize, Default)]
 struct TextesPage {
@@ -73,7 +84,7 @@ pub fn load_texts() -> Result<Textes, Box<dyn Error>> {
     Ok(ron::from_str(&file)?)
 }
 
-#[get("/textes?<message>", rank = 5)]
+#[get("/textes?<message>", rank = 10)]
 pub fn textes(message: Option<String>) -> Template {
     println!("HERE");
     Template::render(
@@ -85,10 +96,12 @@ pub fn textes(message: Option<String>) -> Template {
     )
 }
 
+/*
 #[get("/?textes=accueil&<accueil..>", rank = 1)]
 pub fn accueil_textes(accueil: Form<AccueilTextes>) -> Template {
     textes_function!(accueil)
 }
+*/
 
 #[get("/?textes=acteurs&<acteurs..>", rank = 2)]
 pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Template {
@@ -103,4 +116,14 @@ pub fn premiere_periode_textes(premiere_periode: Form<PremierePeriodeTextes>) ->
 #[get("/?textes=deuxieme_periode&<deuxieme_periode..>", rank = 4)]
 pub fn deuxieme_periode_textes(deuxieme_periode: Form<DeuxiemePeriodeTextes>) -> Template {
     textes_function!(deuxieme_periode)
+}
+
+#[get("/?textes=conclusion&<conclusion..>", rank = 5)]
+pub fn conclusion_textes(conclusion: Form<ConclusionTextes>) -> Template {
+    textes_function!(conclusion)
+}
+
+#[get("/?textes=a_propos&<a_propos..>", rank = 1)]
+pub fn a_propos_textes(a_propos: Form<AProposTextes>) -> Template {
+    textes_function!(a_propos)
 }

@@ -10,13 +10,7 @@ use texts::*;
 
 #[get("/")]
 fn accueil() -> Template {
-    let texts = load_texts().unwrap();
-    Template::render("accueil", texts.accueil)
-}
-
-#[get("/a_propos")]
-fn a_propos() -> Template {
-    Template::render("a_propos", "")
+    Template::render("accueil", "")
 }
 
 #[get("/acteurs")]
@@ -49,12 +43,19 @@ fn interview() -> Template {
 
 #[get("/conclusion")]
 fn conclusion() -> Template {
-    Template::render("conclusion", "")
+    let texts = load_texts().unwrap();
+    Template::render("conclusion", texts.conclusion)
 }
 
-#[get("/bibliography")]
-fn bibliography() -> Template {
-    Template::render("bibliography", "")
+#[get("/bibliographie")]
+fn bibliographie() -> Template {
+    Template::render("bibliographie", "")
+}
+
+#[get("/a_propos")]
+fn a_propos() -> Template {
+    let texts = load_texts().unwrap();
+    Template::render("a_propos", texts.a_propos)
 }
 
 fn main() {
@@ -69,7 +70,7 @@ fn main() {
                 deuxieme_periode,
                 interview,
                 conclusion,
-                bibliography,
+                bibliographie,
                 a_propos,
                 textes,
             ],
@@ -78,10 +79,11 @@ fn main() {
         .mount(
             "/textes",
             routes![
-                accueil_textes,
                 acteurs_textes,
                 premiere_periode_textes,
-                deuxieme_periode_textes
+                deuxieme_periode_textes,
+                conclusion_textes,
+                a_propos_textes,
             ],
         )
         .mount("/static", StaticFiles::from("static"))

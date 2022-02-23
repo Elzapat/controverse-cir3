@@ -3,24 +3,30 @@ let image_texts = document.getElementsByClassName("image-text");
 let shown_element = null;
 
 for (let image of image_texts) {
-    image.onclick = _ => show_paragraph(image);
+    image.onclick = () => {
+        if (shown_element === null) {
+            show_paragraph(image);
+        } else {
+            hide_paragraph(shown_element);
+        }
+    };
 }
 
 document.onkeydown = e => {
     if (e.key === "Escape" && shown_element !== null) {
         hide_paragraph(shown_element);
-        shown_element = null;
     }
 }
 
 document.getElementById("read-close").onclick = () => {
     if (shown_element !== null) {
         hide_paragraph(shown_element);
-        shown_element = null;
     }
 };
 
 function hide_paragraph(elem) {
+    shown_element = null;
+
     document.getElementById("read-close").style.transform = "scale(0)";
     document.querySelectorAll(`#${elem.id} p`).forEach(p => p.style.transform = "scale(0)");
 

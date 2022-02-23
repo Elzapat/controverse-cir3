@@ -1,0 +1,45 @@
+main {
+    margin-bottom: 0;
+}
+
+#title {
+    background-image: url("../images/conclusion_2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title h2 {
+    font-family: "Pacifico", cursive;
+    font-weight: 200;
+    font-size: 3rem;
+    color: white;
+    --bg-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--bg-color);
+    box-shadow: 0px 0px 25px 25px var(--bg-color);
+}
+
+#first-part,
+#second-part {
+    padding-block: 50px;
+}
+
+p {
+    margin-inline: auto;
+    font-weight: 500;
+    width: 60%;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+#second-part {
+    background-color: #030d19;
+}
+
+#second-part p {
+    color: white;
+}

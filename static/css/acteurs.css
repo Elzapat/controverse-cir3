@@ -69,3 +69,19 @@ main {
     --sep-color: gray;
     background-image: linear-gradient(to right, #FFFFFFBB, var(--sep-color), var(--sep-color), #FFFFFFBB);
 }
+
+iframe {
+    width: 1200;
+    height: auto;
+    aspect-ratio: 940 / 600;
+    margin-inline: auto;
+    margin-block: 25px;
+}
+
+p {
+    width: 50%;
+    margin-top: 25px;
+    margin-inline: auto;
+    text-align: center;
+    padding: 0;
+}
