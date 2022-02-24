@@ -1,0 +1,31 @@
+{{#*inline "stylesheets"}}
+    <link rel="stylesheet" href="static/css/introduction.css">
+{{/inline}}
+
+{{#*inline "scripts"}}
+    <script src="static/js/accueil_redirection.js" defer></script>
+{{/inline}}
+
+{{#*inline "main"}}
+    <h1>Introduction</h1>
+    <hr>
+    <section>
+        <img src="static/images/intro1.jpg">
+        <p>{{ paragraph_1 }}</p>
+    </section>
+    <section>
+        <p>{{ paragraph_2 }}</p>
+        <img src="static/images/intro2.jpg">
+    </section>
+    <section>
+        <p>{{ paragraph_3 }}</p>
+    </section>
+    <section>
+        <div>
+            <img src="static/images/intro3.jpg">
+        </div>
+        <p>{{ paragraph_4 }}</p>
+    </section>
+{{/inline}}
+
+{{~> layout title="Introduction" ~}}

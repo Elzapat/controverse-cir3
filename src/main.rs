@@ -19,6 +19,12 @@ fn acteurs() -> Template {
     Template::render("acteurs", texts.acteurs)
 }
 
+#[get("/introduction")]
+fn introduction() -> Template {
+    let texts = load_texts().unwrap();
+    Template::render("introduction", texts.introduction)
+}
+
 #[get("/premiere_periode")]
 fn premiere_periode() -> Template {
     let texts = load_texts().unwrap();
@@ -65,6 +71,7 @@ fn main() {
             routes![
                 accueil,
                 acteurs,
+                introduction,
                 vue_ensemble,
                 premiere_periode,
                 deuxieme_periode,
@@ -84,6 +91,7 @@ fn main() {
                 deuxieme_periode_textes,
                 conclusion_textes,
                 a_propos_textes,
+                introduction_textes,
             ],
         )
         .mount("/static", StaticFiles::from("static"))

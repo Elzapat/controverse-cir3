@@ -1,0 +1,88 @@
+section {
+    width: 80%;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+section:nth-of-type(1) {
+    height: 400px;
+}
+
+section:nth-of-type(1) img {
+    height: 100%;
+    margin-right: 50px;
+}
+
+section:nth-of-type(2) {
+    height: 200px;
+}
+
+section:nth-of-type(2) img {
+    height: 60%;
+    margin-left: 50px;
+}
+
+section:nth-of-type(3) {
+    padding-block: 50px;
+    width: 100%;
+    position: relative;
+}
+
+section:nth-of-type(3) p {
+    color: white;
+    z-index: 2;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    width: 60%;
+}
+
+section:nth-of-type(3)::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    background-image: url("../images/conclusion_2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    inset: 0;
+    filter: brightness(0.2);
+}
+
+section:nth-of-type(4) {
+    height: 300px;
+    padding-bottom: 10px;
+}
+
+section:nth-of-type(4) p {
+    margin-left: 25px;
+}
+
+section:nth-of-type(4) img {
+    height: 100%;
+    border-radius: 100%;
+}
+
+section:nth-of-type(4) div {
+    margin-right: 50px;
+    height: 70%;
+    border-radius: 100%;
+}
+
+section:nth-of-type(4) div::after {
+    content: "Alberto Gutierrez";
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+#section::after {
+    content: "Anne Wojcicki";
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+}

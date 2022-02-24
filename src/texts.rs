@@ -13,6 +13,8 @@ pub struct Textes {
     #[serde(default)]
     pub acteurs: ActeursTextes,
     #[serde(default)]
+    pub introduction: IntroductionTextes,
+    #[serde(default)]
     pub deuxieme_periode: DeuxiemePeriodeTextes,
     #[serde(default)]
     pub conclusion: ConclusionTextes,
@@ -71,6 +73,13 @@ textes_struct!(
     paragraph_4
 );
 textes_struct!(AProposTextes, contexte);
+textes_struct!(
+    IntroductionTextes,
+    paragraph_1,
+    paragraph_2,
+    paragraph_3,
+    paragraph_4
+);
 
 #[derive(Debug, Clone, Serialize, Default)]
 struct TextesPage {
@@ -126,4 +135,9 @@ pub fn conclusion_textes(conclusion: Form<ConclusionTextes>) -> Template {
 #[get("/?textes=a_propos&<a_propos..>", rank = 1)]
 pub fn a_propos_textes(a_propos: Form<AProposTextes>) -> Template {
     textes_function!(a_propos)
+}
+
+#[get("/?textes=introduction&<introduction..>", rank = 6)]
+pub fn introduction_textes(introduction: Form<IntroductionTextes>) -> Template {
+    textes_function!(introduction)
 }

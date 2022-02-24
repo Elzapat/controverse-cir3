@@ -1,11 +1,9 @@
 body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 main {
-    margin-bottom: 0;
     flex: 1;
 }
 
@@ -13,9 +11,13 @@ section * {
     z-index: 2;
 }
 
+#first-row {
+    margin-top: 25px;
+}
+
 #first-row,
 #second-row {
-    height: 50%;
+    height: 450px;
 }
 
 #first-row {
@@ -94,7 +96,7 @@ section * {
 
 
 #introduction p {
-    padding-inline: 150px;
+    padding-inline: 15%;
 }
 
 #conditions p {

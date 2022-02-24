@@ -3,7 +3,7 @@
     --navbar-height: 60px;
     --banner-height: calc(1.5 * var(--navbar-height));
     --above-content-padding: calc(var(--navbar-height) + var(--banner-height));
-    --below-content-padding: calc(2 * var(--navbar-height));
+    --below-content-padding: var(--banner-height);
 }
 
 body {
@@ -27,6 +27,7 @@ main {
     justify-content: center;
     width: 100%;
     background-color: white;
+    border-bottom: thin solid black;
 }
 
 p {
