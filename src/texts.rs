@@ -55,6 +55,7 @@ textes_struct!(
     DeuxiemePeriodeTextes,
     introduction_1,
     introduction_2,
+    citation,
     introduction_3,
     conditions_1,
     conditions_2,
@@ -104,13 +105,6 @@ pub fn textes(message: Option<String>) -> Template {
         },
     )
 }
-
-/*
-#[get("/?textes=accueil&<accueil..>", rank = 1)]
-pub fn accueil_textes(accueil: Form<AccueilTextes>) -> Template {
-    textes_function!(accueil)
-}
-*/
 
 #[get("/?textes=acteurs&<acteurs..>", rank = 2)]
 pub fn acteurs_textes(acteurs: Form<ActeursTextes>) -> Template {

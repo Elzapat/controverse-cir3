@@ -29,6 +29,7 @@ function hide_paragraph(elem) {
 
     document.getElementById("read-close").style.transform = "scale(0)";
     document.querySelectorAll(`#${elem.id} p`).forEach(p => p.style.transform = "scale(0)");
+    document.querySelector(".citation").style.transform = "scale(0)";
 
     elem.classList.remove("shown");
     elem.style.transform = "scale(1) translate(0, 0)";
@@ -40,6 +41,7 @@ function show_paragraph(clicked_elem) {
 
     document.getElementById("read-close").style.transform = "scale(1)";
     document.querySelectorAll(`#${clicked_elem.id} p`).forEach(p => p.style.transform = "scale(1)");
+    document.querySelector(".citation").style.transform = "scale(1)";
 
     clicked_elem.classList.add("shown");
     clicked_elem.style.zIndex = "7";

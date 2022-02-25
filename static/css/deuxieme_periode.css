@@ -100,15 +100,15 @@ section * {
 }
 
 #conditions p {
-    padding-inline: 200px;
+    padding-inline: 20%;
 }
 
 #enjeux p {
-    padding-inline: 200px;
+    padding-inline: 20%;
 }
 
 #inquietudes p {
-    padding-inline: 70px;
+    padding-inline: 7%;
     margin-block: 5px;
 }
 
@@ -168,4 +168,58 @@ section * {
 
 .full-indicator {
     background-color: white;
+}
+
+.citation {
+    position: relative;
+    width: 50%;
+    margin-inline: auto;
+    margin-bottom: -5px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: transform 400ms ease;
+    color: mediumaquamarine;
+}
+
+.citation img {
+    height: 60%;
+    border-radius: 100%;
+}
+
+.citation div {
+    margin-left: 25px;
+}
+
+.citation p {
+    padding: 0 !important;
+    margin: 0;
+}
+
+.citation p::before,
+.citation p::after {
+    font-family: "Passion One", cursive;
+    content: "\"";
+    position: absolute;
+    font-size: 4rem;
+    color: mediumaquamarine;
+}
+
+.citation p::before {
+    top: -20px;
+    left: -20px;
+    transform: scaleX(-1);
+}
+.citation p::after {
+    bottom: -50px;
+    right: -15px;
+}
+
+.citation span {
+    margin-top: 20px;
+    margin-right: -35px;
+    float: right;
 }
