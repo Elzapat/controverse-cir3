@@ -27,24 +27,20 @@ main > section * {
 
 #introduction {
     aspect-ratio: 1440 / 810;
-    width: 80%;
+    width: 100%;
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #introduction::before {
     background-image: url("../images/introduction.jpg");
 }
 
-#introduction h2 {
-    color: black;
-    font-size: 2.0rem;
-    margin-inline: auto;
-    margin-top: 100px;
-}
-
-#introduction p {
-    width: 60%;
-    margin-inline: auto;
-    padding-bottom: 45%;
+#introduction h1 {
+    margin-top: 75px;
 }
 
 .row {
@@ -72,11 +68,14 @@ main > section * {
 
 .row section {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image-text h2 {
-    margin-inline: auto;
-    margin-top: 75px;
+    /* margin-inline: auto; */
+    /* margin-top: 75px; */
     font-size: 2.5rem;
     text-align: center;
     /* box-shadow: 0px 0px 25px 25px rgba(55,54,51, 0.9); */
@@ -97,13 +96,14 @@ main > section * {
     font-size: 1.5rem;
     transition: background-color 300ms ease;
     border-radius: 5px;
+    display: none;
 }
 
 .image-text a:hover {
     background-color: #6A5ACDFF;
 }
 
-.image-text {
+.image-text:not(#introduction) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
